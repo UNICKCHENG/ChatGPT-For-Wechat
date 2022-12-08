@@ -1,0 +1,5 @@
+# https://beta.openai.com/docs/api-reference/models
+
+# The Rest Client plugin needs to be installed if you are using vscode
+curl https://api.openai.com/v1/models \
+  -H 'Authorization: Bearer YOUR_API_KEY'

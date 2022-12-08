@@ -1,0 +1,5 @@
+.env
+package-lock.json
+wechat*.json
+
+node_modules/

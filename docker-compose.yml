@@ -1,0 +1,9 @@
+version: "3.9"
+
+services:
+  chatGPT:
+    build: .
+    container_name: chatGPT
+    restart: unless-stopped
+    environment:
+      - SESSION_TOKEN=${SESSION_TOKEN}
