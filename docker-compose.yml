@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   chatGPT:
-    build: .
+    image: ghcr.io/unickcheng/chatgpt-for-wechat:latest
     container_name: chatGPT
     restart: unless-stopped
     environment:
