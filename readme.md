@@ -1,77 +1,83 @@
 # ChatGPT For Wechat
 
-[ChatGPT-For-Wechat](https://github.com/UNICKCHENG/ChatGPT-For-Wechat) 是一个基于 [wechaty/wechaty](https://github.com/wechaty/wechaty) 的项目，目的是在微信中调用 [ChatGPT](https://openai.com/blog/chatgpt/) 等接口。没错，我并不打算这个项目只限于 ChatGPT  这一个接口，就像 OpenAI 并不只有 ChatGPT，而且有很多更好地项目已经实现了这个功能，甚至也集成到了 [微信对话开放平台](https://openai.weixin.qq.com/) 、小程序等。
+[![Build And Publish Docker](https://github.com/UNICKCHENG/ChatGPT-For-Wechat/actions/workflows/build-docker.yml/badge.svg)](https://github.com/UNICKCHENG/ChatGPT-For-Wechat/actions/workflows/build-docker.yml)
 
-## 感谢名单
+ChatGPT-For-Wechat is a project using wechaty/wechaty that aims to call interfaces such as ChatGPT from within WeChat. I don't intend this project to be limited to ChatGPT, just like OpenAI is not limited to ChatGPT, and there are many better projects that have already implemented this functionality and even integrated it into [WeChat open platform](https://openai.weixin.qq.com), [WeChat Mini Program](https://mp.weixin.qq.com), etc.
 
-- 感谢 [wechaty/wechaty](https://github.com/wechaty/wechaty) 提供的连接「微信」方案，以及 [web 协议支持](https://wechaty.js.org/2021/04/13/wechaty-uos-web/)
-- 感谢 [OpenAI](https://openai.com/api/) 提供的 [OpenAI API](https://beta.openai.com/docs/api-reference/introduction) 和 [ChatGPT](https://openai.com/blog/chatgpt/)
-- 感谢所有开源项目的思路和技术支持
+## 💖 List of Thanks
 
-## 📌**注意：要运行这个项目有两个必要条件**
+- Thanks to [wechaty/wechaty](https://github.com/wechaty/wechaty)'s solution for connecting to WeChat and [web protocol support](https://wechaty.js.org/2021/04/13/wechaty-uos-web/)
+- Thanks to [OpenAI](https://openai.com/api/) for the [OpenAI API](https://beta.openai.com/docs/api-reference/introduction)  and [ChatGPT](https://openai.com/blog/chatgpt/)
+- Thanks to all open source projects for sharing ideas and techniques
 
-- 一个已经认证的微信号，用于模拟 web 端扫码登录
-- 成功注册 [OpenAI](https://openai.com/api/)，并在网页端获取 `seeion`
+## 📌 Please ensure you complete the following before you start 
 
-## docker 启动服务
+- an authenticated wechat used to simulate a web scan login
+- successfully register with [OpenAI](https://openai.com/api/) and get `seeion` on the web [^1]
 
-**验证本地 docker 环境**[^1]
+## 🐟 Use with docker 
+
+**Verify the local environment**[^2]
 ```bash
 docker version
 docker compose version
 ```
 
-**在同一目录下新建 `docker-compose.yml` 和 `.env` 两文件**
+**Create `docker-compose.yml` and `.env` file in the same directory**
 
-- `docker-compose.yml` 内容直接复制 [docker-compose](https://github.com/UNICKCHENG/ChatGPT-For-Wechat/blob/main/docker-compose.yml)
-- `.env`，修改 [.example.env](https://github.com/UNICKCHENG/ChatGPT-For-Wechat/blob/main/.example.env) 内的 `<your-seeion-token>`
+- the contents of `docker-compose.yml` are copied directly from [docker-compose](https://github.com/UNICKCHENG/ChatGPT-For-Wechat/blob/main/docker-compose.yml)
+- the contents of `.env` are copied from [.example.env](https://github.com/UNICKCHENG/ChatGPT-For-Wechat/blob/main/.example.env) ，and you need to modify `<your-seeion-token>`
 
-**启动服务**
+**Starting services**
 ```bash
-# > step 1 启动服务
+# > step 1 starting services
 docker compose up -d
 
-# > step 2 打印日志用于扫码登陆，成功后 ctrl+c 退出查看实时日志即可
+# > step 2 print logs to scan login，after successful ctrl+c exit
 docker logs -f chatGPT
 
-# 如果您不想使用了，可以使用这个命令来结束当前服务
+# if you don't want to use chatGPT
 docker compose down
 ```
 
-## 本地构建
+## 🚀 Local development
 
-**验证本地环境**
+**Verify the local environment**
 ```bash
-# node version 不低于 16, npm version 不低于 7
+# node version >= 16
+# npm version >= 7
 node -v
 npm -v
 git -v
 ```
 
-**构建和启动服务**
+**Building and starting services**
 ```bash
-# > step 1 下载源码
+# > step 1 download source code
 git clone https://github.com/UNICKCHENG/ChatGPT-For-Wechat.git
 
-# > step 2 配置 .env 信息，！！！请修改文件内的内容
+# > step 2 configure the .env information
+# !!! Please modify the contents of `.env`
 cp .example.env .env
 
-# > step 3 安装依赖
+# > step 3 installing dependencies
 npm install
 
-# > step 4 启动
+# > step 4 starting services
 npm run dev
 ```
 
-**对话截图**
-- [单聊截图](./assets/3437A986-FB88-45DE-B881-C38CCC445BA1.jpeg)
-- [群聊截图](./assets/DDB677D9-DFE8-4843-980E-9304B64C29D5.jpeg)
+## 🎉 Conversation screenshot
 
-## 其他优秀项目（欢迎补充）
+- [Example 1](./assets/3437A986-FB88-45DE-B881-C38CCC445BA1.jpeg)
+- [Example 2](./assets/DDB677D9-DFE8-4843-980E-9304B64C29D5.jpeg)
 
-- [transitive-bullshit/chatgpt-api](https://github.com/transitive-bullshit/chatgpt-api) 非官方的 [ChatGPT](https://openai.com/blog/chatgpt/) API
-- [fuergaosi233/wechat-chatgpt](https://github.com/fuergaosi233/wechat-chatgpt) 支持邮箱和密码登录 ChatGPT
-- [sunshanpeng/wechaty-chatgpt](https://github.com/sunshanpeng/wechaty-chatgpt) 一个连接 ChatGPT 的 wechat 机器人 demo
+## 👍 Find Other excellent projects (additions welcome)
+
+- [transitive-bullshit/chatgpt-api](https://github.com/transitive-bullshit/chatgpt-api): unofficial ChatGPT API
+- [fuergaosi233/wechat-chatgpt](https://github.com/fuergaosi233/wechat-chatgpt): support for email and password logins ChatGPT
+- [sunshanpeng/wechaty-chatgpt](https://github.com/sunshanpeng/wechaty-chatgpt): a wechat bot demo connected to ChatGPT
 
 
-[^1]: https://github.com/UNICKCHENG/Tools-Deployment
+[^1]: https://github.com/transitive-bullshit/chatgpt-api#session-tokens
+[^2]: https://github.com/UNICKCHENG/Tools-Deployment
