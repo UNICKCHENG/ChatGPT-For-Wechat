@@ -1,5 +1,14 @@
 # ChatGPT For Wechat
 
+## UPDATE 2023-01-15
+
+This repository has been archived. There are already great projects to replace this old version.
+
+- [wechat-chatgpt](https://github.com/fuergaosi233/wechat-chatgpt)
+- [chatgpt-api](https://github.com/transitive-bullshit/chatgpt-api)
+
+---
+
 [![Build And Publish Docker](https://github.com/UNICKCHENG/ChatGPT-For-Wechat/actions/workflows/build-docker.yml/badge.svg)](https://github.com/UNICKCHENG/ChatGPT-For-Wechat/actions/workflows/build-docker.yml)
 
 ChatGPT-For-Wechat is a project using wechaty/wechaty that aims to call interfaces such as ChatGPT from within WeChat. I don't intend this project to be limited to ChatGPT, just like OpenAI is not limited to ChatGPT, and there are many better projects that have already implemented this functionality and even integrated it into [WeChat open platform](https://openai.weixin.qq.com), [WeChat Mini Program](https://mp.weixin.qq.com), etc.
